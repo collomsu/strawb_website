@@ -101,14 +101,26 @@
                     <button id="monochrome-toggle" title="Mode monochrome"
                         class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24">
-                            <!-- Moitié gauche noire -->
-                            <path d="M12 2a10 10 0 0 0 0 20V2z" fill="black" />
-                            <!-- Moitié droite blanche -->
-                            <path d="M12 2a10 10 0 0 1 0 20V2z" fill="white" />
+                            <defs>
+                                <!-- Dégradé multicolore -->
+                                <linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="red" />
+                                    <stop offset="20%" stop-color="orange" />
+                                    <stop offset="40%" stop-color="yellow" />
+                                    <stop offset="60%" stop-color="green" />
+                                    <stop offset="80%" stop-color="blue" />
+                                    <stop offset="100%" stop-color="purple" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Moitié gauche grise -->
+                            <path d="M12 2a10 10 0 0 0 0 20V2z" fill="gray" />
+                            <!-- Moitié droite multicolore -->
+                            <path d="M12 2a10 10 0 0 1 0 20V2z" fill="url(#rainbow)" />
                             <!-- Contour -->
                             <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" />
                         </svg>
                     </button>
+
 
 
                     <div class="flex items-center">
