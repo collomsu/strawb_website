@@ -55,11 +55,11 @@
                 <a href="#accueil" class="font-display font-bold text-2xl text-strawb-red">Strawb 🍓</a>
                 <div class="hidden md:flex space-x-6 items-center">
                     <a href="#prestations" data-lang-key="nav_services"
-                        class="text-gray-600 dark:text-gray-300 hover:text-strawb-red transition">Prestations</a>
+                        class="text-gray-600 dark:text-gray-300 hover:text-strawb-red dark:hover:text-strawb-red transition">Prestations</a>
                     <a href="#realisations" data-lang-key="nav_projects"
-                        class="text-gray-600 dark:text-gray-300 hover:text-strawb-red transition">Réalisations</a>
+                        class="text-gray-600 dark:text-gray-300 hover:text-strawb-red dark:hover:text-strawb-red transition">Réalisations</a>
                     <a href="#a-propos" data-lang-key="nav_about"
-                        class="text-gray-600 dark:text-gray-300 hover:text-strawb-red transition">À Propos</a>
+                        class="text-gray-600 dark:text-gray-300 hover:text-strawb-red dark:hover:text-strawb-red transition">À Propos</a>
                     <a href="#contact" data-lang-key="nav_contact_btn"
                         class="bg-strawb-red text-white font-bold py-2 px-4 rounded-full hover:bg-red-700 transition">Contact</a>
                 </div>
@@ -97,16 +97,6 @@
                         </svg>
 
                     </button>
-
-                    <!-- <div class="flex items-center">
-                        <input type="checkbox" id="theme-toggle-checkbox" class="hidden toggle-checkbox">
-                        <label for="theme-toggle-checkbox"
-                            class="toggle-label cursor-pointer flex items-center bg-gray-300 dark:bg-gray-700 rounded-full p-1 w-12 h-6">
-                            <div
-                                class="toggle-ball bg-white dark:bg-gray-400 w-5 h-5 rounded-full shadow-md transform transition-transform duration-300 ease-in-out">
-                            </div>
-                        </label>
-                    </div> -->
 
                     <div class="relative flex items-center">
                         <input type="checkbox" id="theme-toggle-checkbox" class="hidden peer">
@@ -335,6 +325,7 @@
                                 class="w-full bg-gray-700 dark:bg-gray-800 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-strawb-red">
                                 <option data-lang-key="option_web">Développement Web</option>
                                 <option data-lang-key="option_mobile">Développement Mobile</option>
+                                <option data-lang-key="option_software">Développement Logiciel</option>
                                 <option data-lang-key="option_ux">Conception UX/UI</option>
                                 <option data-lang-key="option_other">Autre</option>
                             </select>
@@ -410,7 +401,7 @@
                     services_title: 'Nos Prestations', services_subtitle: 'Un accompagnement complet pour donner vie à votre projet.', service1_title: 'Développement Web', service1_desc: 'Sites vitrines, applications web complexes (SaaS) et plateformes e-commerce performantes.', service2_title: 'Développement Mobile', service2_desc: 'Applications natives iOS & Android ou cross-platform pour une expérience utilisateur optimale.', service3_title: 'Développement Logiciel', service3_desc: 'Conception de logiciels de bureau sur-mesure, APIs robustes et modernisation de systèmes existants.', service4_title: 'Conception UX/UI', service4_desc: "Nous créons des interfaces intuitives et agréables grâce à notre expertise en Interaction Homme-Machine.",
                     projects_title: 'Nos Réalisations', projects_subtitle: 'Quelques exemples de projets que nous avons accompagnés.', project1_title: 'Application Mobile "ConnectYou"', project1_desc: 'Une application sociale pour connecter les passionnés de sport. Disponible sur iOS et Android.', project2_title: 'Plateforme SaaS "DataBoard"', project2_desc: 'Un tableau de bord analytique complexe pour les entreprises du secteur de la finance.', project3_title: 'Logiciel "ProManage"', project3_desc: 'Un outil de gestion de projet sur-mesure pour les agences créatives, développé pour macOS.',
                     about_title: "Plus qu'un prestataire, un véritable partenaire.", about_desc1: "Chez Strawb, nous croyons qu'un bon produit numérique est un produit utile, utilisable et utilisé. Notre mission est de transformer votre vision en une réalité digitale performante et centrée sur l'humain.", about_desc2: "Fort d'un Master en Interaction Homme-Machine, je mets un point d'honneur à placer l'utilisateur final au cœur de chaque projet, garantissant ainsi des solutions non seulement fonctionnelles, mais aussi intuitives et agréables à utiliser.", about_clients_title: 'Ils nous ont fait confiance',
-                    contact_title: 'Un projet en tête ? Parlons-en !', contact_subtitle: 'Remplissez le formulaire ci-dessous et nous reviendrons vers vous sous 48h.', form_name: 'Nom', form_email: 'Email', form_service: 'Type de service', option_web: 'Développement Web', option_mobile: 'Développement Mobile', option_ux: 'Conception UX/UI', option_other: 'Autre', form_message: 'Votre message', form_submit: 'Envoyer la demande',
+                    contact_title: 'Un projet en tête ? Parlons-en !', contact_subtitle: 'Remplissez le formulaire ci-dessous et nous reviendrons vers vous sous 48h.', form_name: 'Nom', form_email: 'Email', form_service: 'Type de service', option_web: 'Développement Web', option_software: 'Développement Logiciel', option_mobile: 'Développement Mobile', option_ux: 'Conception UX/UI', option_other: 'Autre', form_message: 'Votre message', form_submit: 'Envoyer la demande',
                     footer_text: '© 2025 Strawb. Tous droits réservés.'
                 },
                 en: {
@@ -419,7 +410,7 @@
                     services_title: 'Our Services', services_subtitle: 'Comprehensive support to bring your project to life.', service1_title: 'Web Development', service1_desc: 'Showcase sites, complex web applications (SaaS), and high-performance e-commerce platforms.', service2_title: 'Mobile Development', service2_desc: 'Native iOS & Android or cross-platform applications for an optimal user experience.', service3_title: 'Software Development', service3_desc: 'Design of custom desktop software, robust APIs, and modernization of existing systems.', service4_title: 'UX/UI Design', service4_desc: 'We create intuitive and enjoyable interfaces thanks to our expertise in Human-Computer Interaction.',
                     projects_title: 'Our Projects', projects_subtitle: 'A few examples of projects we have supported.', project1_title: 'Mobile App "ConnectYou"', project1_desc: 'A social application to connect sports enthusiasts. Available on iOS and Android.', project2_title: '"DataBoard" SaaS Platform', project2_desc: 'A complex analytical dashboard for companies in the financial sector.', project3_title: '"ProManage" Software', project3_desc: 'A custom project management tool for creative agencies, developed for macOS.',
                     about_title: 'More than a provider, a true partner.', about_desc1: 'At Strawb, we believe that a good digital product is useful, usable, and used. Our mission is to transform your vision into a high-performing, human-centered digital reality.', about_desc2: "With a Master's degree in Human-Computer Interaction, I make it a point of honor to place the end-user at the heart of every project, thus ensuring solutions that are not only functional but also intuitive and enjoyable to use.", about_clients_title: 'They trusted us',
-                    contact_title: 'Have a project in mind? Let\'s talk!', contact_subtitle: 'Fill out the form below, and we will get back to you within 48 hours.', form_name: 'Name', form_email: 'Email', form_service: 'Type of service', option_web: 'Web Development', option_mobile: 'Mobile Development', option_ux: 'UX/UI Design', option_other: 'Other', form_message: 'Your message', form_submit: 'Send request',
+                    contact_title: 'Have a project in mind? Let\'s talk!', contact_subtitle: 'Fill out the form below, and we will get back to you within 48 hours.', form_name: 'Name', form_email: 'Email', form_service: 'Type of service', option_web: 'Web Development', option_software: 'Software Development', option_mobile: 'Mobile Development', option_ux: 'UX/UI Design', option_other: 'Other', form_message: 'Your message', form_submit: 'Send request',
                     footer_text: '© 2025 Strawb. All rights reserved.'
                 },
                 es: {
@@ -428,7 +419,7 @@
                     services_title: 'Nuestros Servicios', services_subtitle: 'Soporte completo para dar vida a tu proyecto.', service1_title: 'Desarrollo Web', service1_desc: 'Sitios web, aplicaciones web complejas (SaaS) y plataformas de e-commerce de alto rendimiento.', service2_title: 'Desarrollo Móvil', service2_desc: 'Aplicaciones nativas para iOS y Android o multiplataforma para una experiencia de usuario óptima.', service3_title: 'Desarrollo de Software', service3_desc: 'Diseño de software de escritorio a medida, APIs robustas y modernización de sistemas existentes.', service4_title: 'Diseño UX/UI', service4_desc: 'Creamos interfaces intuitivas y agradables gracias a nuestra experiencia en Interacción Humano-Computadora.',
                     projects_title: 'Nuestros Proyectos', projects_subtitle: 'Algunos ejemplos de proyectos que hemos apoyado.', project1_title: 'App Móvil "ConnectYou"', project1_desc: 'Una aplicación social para conectar a los entusiastas del deporte. Disponible en iOS y Android.', project2_title: 'Plataforma SaaS "DataBoard"', project2_desc: 'Un complejo panel de análisis para empresas del sector financiero.', project3_title: 'Software "ProManage"', project3_desc: 'Una herramienta de gestión de proyectos a medida para agencias creativas, desarrollada para macOS.',
                     about_title: 'Más que un proveedor, un verdadero socio.', about_desc1: 'En Strawb, creemos que un buen producto digital es útil, usable y usado. Nuestra misión es transformar tu visión en una realidad digital de alto rendimiento y centrada en el ser humano.', about_desc2: 'Con un Máster en Interacción Humano-Computadora, me enorgullece poner al usuario final en el centro de cada proyecto, garantizando soluciones que no solo son funcionales, sino también intuitivas y agradables de usar.', about_clients_title: 'Confiaron en nosotros',
-                    contact_title: '¿Tienes un proyecto en mente? ¡Hablemos!', contact_subtitle: 'Rellena el siguiente formulario y te responderemos en 48 horas.', form_name: 'Nombre', form_email: 'Correo electrónico', form_service: 'Tipo de servicio', option_web: 'Desarrollo Web', option_mobile: 'Desarrollo Móvil', option_ux: 'Diseño UX/UI', option_other: 'Otro', form_message: 'Tu mensaje', form_submit: 'Enviar solicitud',
+                    contact_title: '¿Tienes un proyecto en mente? ¡Hablemos!', contact_subtitle: 'Rellena el siguiente formulario y te responderemos en 48 horas.', form_name: 'Nombre', form_email: 'Correo electrónico', form_service: 'Tipo de servicio', option_web: 'Desarrollo Web', option_software: 'Desarrollo de Software', option_mobile: 'Desarrollo Móvil', option_ux: 'Diseño UX/UI', option_other: 'Otro', form_message: 'Tu mensaje', form_submit: 'Enviar solicitud',
                     footer_text: '© 2025 Strawb. Todos los derechos reservados.'
                 },
                 ja: {
@@ -437,7 +428,7 @@
                     services_title: '私たちのサービス', services_subtitle: 'プロジェクトを実現するための包括的なサポート。', service1_title: 'ウェブ開発', service1_desc: '紹介サイト、複雑なウェブアプリケーション（SaaS）、高性能なEコマースプラットフォーム。', service2_title: 'モバイル開発', service2_desc: '最適なユーザーエクスペリエンスのためのネイティブiOS＆Androidまたはクロスプラットフォームアプリ。', service3_title: 'ソフトウェア開発', service3_desc: 'カスタムデスクトップソフトウェア、堅牢なAPIの設計、既存システムの近代化。', service4_title: 'UX/UIデザイン', service4_desc: 'ヒューマンコンピュータインタラクションの専門知識を活かし、直感的で快適なインターフェースを作成します。',
                     projects_title: '私たちの実績', projects_subtitle: '私たちがサポートしたプロジェクトの例です。', project1_title: 'モバイルアプリ「ConnectYou」', project1_desc: 'スポーツ愛好家をつなぐソーシャルアプリ。iOSとAndroidで利用可能。', project2_title: 'SaaSプラットフォーム「DataBoard」', project2_desc: '金融セクターの企業向けの複雑な分析ダッシュボード。', project3_title: 'ソフトウェア「ProManage」', project3_desc: 'クリエイティブエージェンシー向けのカスタムプロジェクト管理ツール。macOS用に開発。',
                     about_title: '単なるプロバイダーではなく、真のパートナー。', about_desc1: 'Strawbでは、優れたデジタル製品とは、便利で、使いやすく、実際に使われるものだと考えています。私たちの使命は、お客様のビジョンを高性能で人間中心のデジタルリアリティに変えることです。', about_desc2: 'ヒューマンコンピュータインタラクションの修士号を持つ私は、すべてのプロジェクトの中心にエンドユーザーを据えることを誇りに思っており、機能的であるだけでなく、直感的で使いやすいソリューションを保証します。', about_clients_title: 'お客様からの信頼',
-                    contact_title: 'プロジェクトをお考えですか？お話ししましょう！', contact_subtitle: '以下のフォームにご記入ください。48時間以内にご返信いたします。', form_name: '名前', form_email: 'メールアドレス', form_service: 'サービスの種類', option_web: 'ウェブ開発', option_mobile: 'モバイル開発', option_ux: 'UX/UIデザイン', option_other: 'その他', form_message: 'メッセージ', form_submit: '送信',
+                    contact_title: 'プロジェクトをお考えですか？お話ししましょう！', contact_subtitle: '以下のフォームにご記入ください。48時間以内にご返信いたします。', form_name: '名前', form_email: 'メールアドレス', form_service: 'サービスの種類', option_web: 'ウェブ開発', option_software: 'ソフトウェア開発', option_mobile: 'モバイル開発', option_ux: 'UX/UIデザイン', option_other: 'その他', form_message: 'メッセージ', form_submit: '送信',
                     footer_text: '© 2025 Strawb. 全著作権所有。'
                 }
             };
