@@ -95,10 +95,10 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                         </svg>
-                        
+
                     </button>
 
-                    <div class="flex items-center">
+                    <!-- <div class="flex items-center">
                         <input type="checkbox" id="theme-toggle-checkbox" class="hidden toggle-checkbox">
                         <label for="theme-toggle-checkbox"
                             class="toggle-label cursor-pointer flex items-center bg-gray-300 dark:bg-gray-700 rounded-full p-1 w-12 h-6">
@@ -106,7 +106,34 @@
                                 class="toggle-ball bg-white dark:bg-gray-400 w-5 h-5 rounded-full shadow-md transform transition-transform duration-300 ease-in-out">
                             </div>
                         </label>
+                    </div> -->
+
+                    <div class="flex items-center">
+                        <input type="checkbox" id="theme-toggle-checkbox" class="hidden peer">
+
+                        <label for="theme-toggle-checkbox" class="relative cursor-pointer flex items-center justify-between rounded-full w-14 h-7 p-1
+           bg-yellow-200 peer-checked:bg-blue-900 transition-colors duration-300 ease-in-out">
+
+                            <!-- Icône Soleil -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-500" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 4.75a1 1 0 011-1h0a1 1 0 00-1-1h0a1 1 0 00-1 1h0a1 1 0 011 1zM12 20.25a1 1 0 011-1h0a1 1 0 00-1-1h0a1 1 0 00-1 1h0a1 1 0 011 1zM4.75 12a1 1 0 011-1v0a1 1 0 00-1-1v0a1 1 0 00-1 1v0a1 1 0 011 1zM20.25 12a1 1 0 011-1v0a1 1 0 00-1-1v0a1 1 0 00-1 1v0a1 1 0 011 1zM6.34 6.34a1 1 0 011.41 0h0a1 1 0 000-1.41h0a1 1 0 00-1.41 0h0a1 1 0 000 1.41zM17.66 17.66a1 1 0 011.41 0h0a1 1 0 000-1.41h0a1 1 0 00-1.41 0h0a1 1 0 000 1.41zM17.66 6.34a1 1 0 00-1.41 0h0a1 1 0 000-1.41h0a1 1 0 001.41 0h0a1 1 0 000 1.41zM6.34 17.66a1 1 0 00-1.41 0h0a1 1 0 000-1.41h0a1 1 0 001.41 0h0a1 1 0 000 1.41zM12 8a4 4 0 100 8 4 4 0 000-8z" />
+                            </svg>
+
+                            <!-- Icône Lune -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-300" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path d="M21 12.79A9 9 0 0111.21 3a7 7 0 000 14A9 9 0 0121 12.79z" />
+                            </svg>
+
+                            <!-- Balle -->
+                            <div
+                                class="absolute left-1 top-1 w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-300 ease-in-out peer-checked:translate-x-7">
+                            </div>
+                        </label>
                     </div>
+
                 </div>
             </nav>
         </header>
