@@ -18,7 +18,7 @@
 
     <script>
         tailwind.config = {
-            darkMode: 'class', // Activation du mode nuit basé sur une classe
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -33,429 +33,425 @@
             }
         }
     </script>
+    <style>
+        .monochrome {
+            filter: grayscale(100%);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        /* Masquer le checkbox du toggle */
+        .toggle-checkbox:checked+.toggle-label .toggle-ball {
+            transform: translateX(24px);
+        }
+    </style>
 </head>
 
 <body
     class="bg-white dark:bg-gray-900 font-sans text-gray-800 dark:text-gray-200 antialiased transition-colors duration-300">
 
-    <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#accueil" class="font-display font-bold text-2xl text-strawb-red">
-                Strawb 🍓
-            </a>
-            <div class="hidden md:flex space-x-6 items-center">
-                <a href="#prestations" data-lang-key="nav_services"
-                    class="text-gray-600 dark:text-gray-300 hover:text-strawb-red transition">Prestations</a>
-                <a href="#realisations" data-lang-key="nav_projects"
-                    class="text-gray-600 dark:text-gray-300 hover:text-strawb-red transition">Réalisations</a>
-                <a href="#a-propos" data-lang-key="nav_about"
-                    class="text-gray-600 dark:text-gray-300 hover:text-strawb-red transition">À Propos</a>
-                <a href="#contact" data-lang-key="nav_contact_btn"
-                    class="bg-strawb-red text-white font-bold py-2 px-4 rounded-full hover:bg-red-700 transition">Contact</a>
-            </div>
-            <div class="flex items-center space-x-4">
-                <button id="lang-toggle"
-                    class="font-bold text-sm text-gray-600 dark:text-gray-300 hover:text-strawb-red transition p-2 rounded-md">
-                    <span id="lang-text">EN</span>
-                </button>
-
-                <button id="theme-toggle"
-                    class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-                    <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
-                    <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                    </svg>
-                </button>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-
-        <section id="accueil" class="bg-gray-50 dark:bg-gray-800">
-            <div class="container mx-auto px-6 py-24 md:py-32 text-center">
-                <h1 data-lang-key="hero_title" class="font-display text-4xl md:text-6xl font-bold mb-4">Nous cultivons
-                    vos idées en solutions numériques.</h1>
-                <p data-lang-key="hero_subtitle"
-                    class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">Développement
-                    d'applications web, logiciels et mobiles sur-mesure, de la conception à la mise en ligne.</p>
-                <div class="space-x-4">
-                    <a href="#realisations" data-lang-key="hero_cta1"
-                        class="bg-strawb-red text-white font-bold py-3 px-8 rounded-full hover:bg-red-700 transition">Nos
-                        réalisations</a>
-                    <a href="#contact" data-lang-key="hero_cta2"
-                        class="bg-gray-200 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-300 transition">Nous
-                        contacter</a>
+    <div id="site-wrapper">
+        <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+            <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="#accueil" class="font-display font-bold text-2xl text-strawb-red">Strawb 🍓</a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="#prestations" data-lang-key="nav_services"
+                        class="text-gray-600 dark:text-gray-300 hover:text-strawb-red transition">Prestations</a>
+                    <a href="#realisations" data-lang-key="nav_projects"
+                        class="text-gray-600 dark:text-gray-300 hover:text-strawb-red transition">Réalisations</a>
+                    <a href="#a-propos" data-lang-key="nav_about"
+                        class="text-gray-600 dark:text-gray-300 hover:text-strawb-red transition">À Propos</a>
+                    <a href="#contact" data-lang-key="nav_contact_btn"
+                        class="bg-strawb-red text-white font-bold py-2 px-4 rounded-full hover:bg-red-700 transition">Contact</a>
                 </div>
-            </div>
-        </section>
+                <div class="flex items-center space-x-4">
+                    <div class="relative" id="lang-menu">
+                        <button id="lang-menu-button"
+                            class="flex items-center space-x-2 p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+                            <span id="current-lang-flag">🇫🇷</span>
+                            <span id="current-lang-text"
+                                class="font-bold text-sm text-gray-600 dark:text-gray-300">FR</span>
+                        </button>
+                        <div id="lang-dropdown"
+                            class="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-800 rounded-md shadow-lg hidden">
+                            <a href="#"
+                                class="lang-option flex items-center space-x-2 p-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                data-lang="fr"><span>🇫🇷</span> <span data-lang-key="lang_fr">Français</span></a>
+                            <a href="#"
+                                class="lang-option flex items-center space-x-2 p-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                data-lang="en"><span>🇬🇧</span> <span data-lang-key="lang_en">English</span></a>
+                            <a href="#"
+                                class="lang-option flex items-center space-x-2 p-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                data-lang="es"><span>🇪🇸</span> <span data-lang-key="lang_es">Español</span></a>
+                            <a href="#"
+                                class="lang-option flex items-center space-x-2 p-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                data-lang="ja"><span>🇯🇵</span> <span data-lang-key="lang_ja">日本語</span></a>
+                        </div>
+                    </div>
 
-        <section id="prestations" class="container mx-auto px-6 py-20">
-            <div class="text-center mb-12">
-                <h2 data-lang-key="services_title" class="font-display text-3xl md:text-4xl font-bold">Nos Prestations
-                </h2>
-                <p data-lang-key="services_subtitle" class="text-gray-600 dark:text-gray-400 mt-2">Un accompagnement
-                    complet pour donner vie à votre projet.</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg text-center">
-                    <div
-                        class="bg-strawb-red/10 text-strawb-red w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                    <button id="monochrome-toggle" title="Mode monochrome"
+                        class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                         </svg>
-                    </div>
-                    <h3 data-lang-key="service1_title" class="font-display text-xl font-bold mb-2">Développement Web
-                    </h3>
-                    <p data-lang-key="service1_desc" class="text-gray-600 dark:text-gray-400">Sites vitrines,
-                        applications web complexes (SaaS) et plateformes e-commerce performantes.</p>
-                </div>
-                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg text-center">
-                    <div
-                        class="bg-strawb-red/10 text-strawb-red w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <h3 data-lang-key="service2_title" class="font-display text-xl font-bold mb-2">Développement Mobile
-                    </h3>
-                    <p data-lang-key="service2_desc" class="text-gray-600 dark:text-gray-400">Applications natives iOS &
-                        Android ou cross-platform pour une expérience utilisateur optimale.</p>
-                </div>
-                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg text-center">
-                    <div
-                        class="bg-strawb-red/10 text-strawb-red w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <h3 data-lang-key="service3_title" class="font-display text-xl font-bold mb-2">Développement
-                        Logiciel</h3>
-                    <p data-lang-key="service3_desc" class="text-gray-600 dark:text-gray-400">Conception de logiciels de
-                        bureau sur-mesure, APIs robustes et modernisation de systèmes existants.</p>
-                </div>
-                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg text-center">
-                    <div
-                        class="bg-strawb-red/10 text-strawb-red w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
-                    </div>
-                    <h3 data-lang-key="service4_title" class="font-display text-xl font-bold mb-2">Conception UX/UI</h3>
-                    <p data-lang-key="service4_desc" class="text-gray-600 dark:text-gray-400">Nous créons des interfaces
-                        intuitives et agréables grâce à notre expertise en Interaction Homme-Machine.</p>
-                </div>
-            </div>
-        </section>
+                    </button>
 
-        <section id="realisations" class="bg-gray-50 dark:bg-gray-800">
-            <div class="container mx-auto px-6 py-20">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="theme-toggle-checkbox" class="hidden toggle-checkbox">
+                        <label for="theme-toggle-checkbox"
+                            class="toggle-label cursor-pointer flex items-center bg-gray-300 dark:bg-gray-700 rounded-full p-1 w-12 h-6">
+                            <div
+                                class="toggle-ball bg-white dark:bg-gray-400 w-5 h-5 rounded-full shadow-md transform transition-transform duration-300 ease-in-out">
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section id="accueil" class="bg-gray-50 dark:bg-gray-800">
+                <div class="container mx-auto px-6 py-24 md:py-32 text-center">
+                    <h1 data-lang-key="hero_title" class="font-display text-4xl md:text-6xl font-bold mb-4">Nous
+                        cultivons vos idées en solutions numériques.</h1>
+                    <p data-lang-key="hero_subtitle"
+                        class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">Développement
+                        d'applications web, logiciels et mobiles sur-mesure, de la conception à la mise en ligne.</p>
+                    <div class="space-x-4">
+                        <a href="#realisations" data-lang-key="hero_cta1"
+                            class="bg-strawb-red text-white font-bold py-3 px-8 rounded-full hover:bg-red-700 transition">Nos
+                            réalisations</a>
+                        <a href="#contact" data-lang-key="hero_cta2"
+                            class="bg-gray-200 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-300 transition">Nous
+                            contacter</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="prestations" class="container mx-auto px-6 py-20">
                 <div class="text-center mb-12">
-                    <h2 data-lang-key="projects_title" class="font-display text-3xl md:text-4xl font-bold">Nos
-                        Réalisations</h2>
-                    <p data-lang-key="projects_subtitle" class="text-gray-600 dark:text-gray-400 mt-2">Quelques exemples
-                        de projets que nous avons accompagnés.</p>
+                    <h2 data-lang-key="services_title" class="font-display text-3xl md:text-4xl font-bold">Nos
+                        Prestations</h2>
+                    <p data-lang-key="services_subtitle" class="text-gray-600 dark:text-gray-400 mt-2">Un accompagnement
+                        complet pour donner vie à votre projet.</p>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden group">
-                        <img src="https://placehold.co/600x400/d92645/FFFFFF?text=Projet+Mobile"
-                            alt="Visuel du projet 1"
-                            class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
-                        <div class="p-6">
-                            <h3 data-lang-key="project1_title" class="font-display text-xl font-bold mb-2">Application
-                                Mobile "ConnectYou"</h3>
-                            <p data-lang-key="project1_desc" class="text-gray-600 dark:text-gray-300 mb-4">Une
-                                application sociale pour connecter les passionnés de sport. Disponible sur iOS et
-                                Android.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg text-center">
+                        <div
+                            class="bg-strawb-red/10 text-strawb-red w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
                         </div>
+                        <h3 data-lang-key="service1_title" class="font-display text-xl font-bold mb-2">Développement Web
+                        </h3>
+                        <p data-lang-key="service1_desc" class="text-gray-600 dark:text-gray-400">Sites vitrines,
+                            applications web complexes (SaaS) et plateformes e-commerce performantes.</p>
                     </div>
-                    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden group">
-                        <img src="https://placehold.co/600x400/2a9d8f/FFFFFF?text=Projet+Web" alt="Visuel du projet 2"
-                            class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
-                        <div class="p-6">
-                            <h3 data-lang-key="project2_title" class="font-display text-xl font-bold mb-2">Plateforme
-                                SaaS "DataBoard"</h3>
-                            <p data-lang-key="project2_desc" class="text-gray-600 dark:text-gray-300 mb-4">Un tableau de
-                                bord analytique complexe pour les entreprises du secteur de la finance.</p>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg text-center">
+                        <div
+                            class="bg-strawb-red/10 text-strawb-red w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                            </svg>
                         </div>
+                        <h3 data-lang-key="service2_title" class="font-display text-xl font-bold mb-2">Développement
+                            Mobile</h3>
+                        <p data-lang-key="service2_desc" class="text-gray-600 dark:text-gray-400">Applications natives
+                            iOS & Android ou cross-platform pour une expérience utilisateur optimale.</p>
                     </div>
-                    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden group">
-                        <img src="https://placehold.co/600x400/333333/FFFFFF?text=Projet+Logiciel"
-                            alt="Visuel du projet 3"
-                            class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
-                        <div class="p-6">
-                            <h3 data-lang-key="project3_title" class="font-display text-xl font-bold mb-2">Logiciel
-                                "ProManage"</h3>
-                            <p data-lang-key="project3_desc" class="text-gray-600 dark:text-gray-300 mb-4">Un outil de
-                                gestion de projet sur-mesure pour les agences créatives, développé pour macOS.</p>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg text-center">
+                        <div
+                            class="bg-strawb-red/10 text-strawb-red w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
                         </div>
+                        <h3 data-lang-key="service3_title" class="font-display text-xl font-bold mb-2">Développement
+                            Logiciel</h3>
+                        <p data-lang-key="service3_desc" class="text-gray-600 dark:text-gray-400">Conception de
+                            logiciels de bureau sur-mesure, APIs robustes et modernisation de systèmes existants.</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg text-center">
+                        <div
+                            class="bg-strawb-red/10 text-strawb-red w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                        </div>
+                        <h3 data-lang-key="service4_title" class="font-display text-xl font-bold mb-2">Conception UX/UI
+                        </h3>
+                        <p data-lang-key="service4_desc" class="text-gray-600 dark:text-gray-400">Nous créons des
+                            interfaces intuitives et agréables grâce à notre expertise en Interaction Homme-Machine.</p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="a-propos" class="container mx-auto px-6 py-20">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 data-lang-key="about_title" class="font-display text-3xl md:text-4xl font-bold">Plus qu'un
-                        prestataire, un véritable partenaire.</h2>
-                    <p data-lang-key="about_desc1" class="text-gray-600 dark:text-gray-400 mt-4 text-lg">Chez Strawb,
-                        nous croyons qu'un bon produit numérique est un produit utile, utilisable et utilisé. Notre
-                        mission est de transformer votre vision en une réalité digitale performante et centrée sur
-                        l'humain.</p>
-                    <p data-lang-key="about_desc2" class="text-gray-600 dark:text-gray-400 mt-4">Fort d'un Master en
-                        Interaction Homme-Machine, je mets un point d'honneur à placer l'utilisateur final au cœur de
-                        chaque projet, garantissant ainsi des solutions non seulement fonctionnelles, mais aussi
-                        intuitives et agréables à utiliser.</p>
+            <section id="realisations" class="bg-gray-50 dark:bg-gray-800">
+                <div class="container mx-auto px-6 py-20">
+                    <div class="text-center mb-12">
+                        <h2 data-lang-key="projects_title" class="font-display text-3xl md:text-4xl font-bold">Nos
+                            Réalisations</h2>
+                        <p data-lang-key="projects_subtitle" class="text-gray-600 dark:text-gray-400 mt-2">Quelques
+                            exemples de projets que nous avons accompagnés.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden group">
+                            <img src="https://placehold.co/600x400/d92645/FFFFFF?text=Projet+Mobile"
+                                alt="Visuel du projet 1"
+                                class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                            <div class="p-6">
+                                <h3 data-lang-key="project1_title" class="font-display text-xl font-bold mb-2">
+                                    Application Mobile "ConnectYou"</h3>
+                                <p data-lang-key="project1_desc" class="text-gray-600 dark:text-gray-300 mb-4">Une
+                                    application sociale pour connecter les passionnés de sport. Disponible sur iOS et
+                                    Android.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden group">
+                            <img src="https://placehold.co/600x400/2a9d8f/FFFFFF?text=Projet+Web"
+                                alt="Visuel du projet 2"
+                                class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                            <div class="p-6">
+                                <h3 data-lang-key="project2_title" class="font-display text-xl font-bold mb-2">
+                                    Plateforme SaaS "DataBoard"</h3>
+                                <p data-lang-key="project2_desc" class="text-gray-600 dark:text-gray-300 mb-4">Un
+                                    tableau de bord analytique complexe pour les entreprises du secteur de la finance.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden group">
+                            <img src="https://placehold.co/600x400/333333/FFFFFF?text=Projet+Logiciel"
+                                alt="Visuel du projet 3"
+                                class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                            <div class="p-6">
+                                <h3 data-lang-key="project3_title" class="font-display text-xl font-bold mb-2">Logiciel
+                                    "ProManage"</h3>
+                                <p data-lang-key="project3_desc" class="text-gray-600 dark:text-gray-300 mb-4">Un outil
+                                    de gestion de projet sur-mesure pour les agences créatives, développé pour macOS.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg">
-                    <h3 data-lang-key="about_clients_title" class="font-display text-2xl font-bold text-center mb-6">Ils
-                        nous ont fait confiance</h3>
-                    <div class="grid grid-cols-2 gap-8 items-center"><img
-                            src="https://placehold.co/200x100/CCCCCC/FFFFFF?text=Client+A" alt="Logo Client A"
-                            class="mx-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"><img
-                            src="https://placehold.co/200x100/CCCCCC/FFFFFF?text=Client+B" alt="Logo Client B"
-                            class="mx-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"><img
-                            src="https://placehold.co/200x100/CCCCCC/FFFFFF?text=Client+C" alt="Logo Client C"
-                            class="mx-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"><img
-                            src="https://placehold.co/200x100/CCCCCC/FFFFFF?text=Client+D" alt="Logo Client D"
-                            class="mx-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"></div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="contact" class="bg-gray-800 dark:bg-black text-white">
-            <div class="container mx-auto px-6 py-20">
-                <div class="text-center mb-12">
-                    <h2 data-lang-key="contact_title" class="font-display text-3xl md:text-4xl font-bold">Un projet en
-                        tête ? Parlons-en !</h2>
-                    <p data-lang-key="contact_subtitle" class="text-gray-300 mt-2">Remplissez le formulaire ci-dessous
-                        et nous reviendrons vers vous sous 48h.</p>
+            <section id="a-propos" class="container mx-auto px-6 py-20">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 data-lang-key="about_title" class="font-display text-3xl md:text-4xl font-bold">Plus qu'un
+                            prestataire, un véritable partenaire.</h2>
+                        <p data-lang-key="about_desc1" class="text-gray-600 dark:text-gray-400 mt-4 text-lg">Chez
+                            Strawb, nous croyons qu'un bon produit numérique est un produit utile, utilisable et
+                            utilisé. Notre mission est de transformer votre vision en une réalité digitale performante
+                            et centrée sur l'humain.</p>
+                        <p data-lang-key="about_desc2" class="text-gray-600 dark:text-gray-400 mt-4">Fort d'un Master en
+                            Interaction Homme-Machine, je mets un point d'honneur à placer l'utilisateur final au cœur
+                            de chaque projet, garantissant ainsi des solutions non seulement fonctionnelles, mais aussi
+                            intuitives et agréables à utiliser.</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg">
+                        <h3 data-lang-key="about_clients_title"
+                            class="font-display text-2xl font-bold text-center mb-6">Ils nous ont fait confiance</h3>
+                        <div class="grid grid-cols-2 gap-8 items-center"><img
+                                src="https://placehold.co/200x100/CCCCCC/FFFFFF?text=Client+A" alt="Logo Client A"
+                                class="mx-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"><img
+                                src="https://placehold.co/200x100/CCCCCC/FFFFFF?text=Client+B" alt="Logo Client B"
+                                class="mx-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"><img
+                                src="https://placehold.co/200x100/CCCCCC/FFFFFF?text=Client+C" alt="Logo Client C"
+                                class="mx-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"><img
+                                src="https://placehold.co/200x100/CCCCCC/FFFFFF?text=Client+D" alt="Logo Client D"
+                                class="mx-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition">
+                        </div>
+                    </div>
                 </div>
-                <form action="#" method="POST" class="max-w-xl mx-auto">
-                    <div class="grid sm:grid-cols-2 gap-6">
-                        <div>
-                            <label for="nom" data-lang-key="form_name" class="block mb-1 font-medium">Nom</label>
-                            <input type="text" id="nom" name="nom" required
+            </section>
+
+            <section id="contact" class="bg-gray-800 dark:bg-black text-white">
+                <div class="container mx-auto px-6 py-20">
+                    <div class="text-center mb-12">
+                        <h2 data-lang-key="contact_title" class="font-display text-3xl md:text-4xl font-bold">Un projet
+                            en tête ? Parlons-en !</h2>
+                        <p data-lang-key="contact_subtitle" class="text-gray-300 mt-2">Remplissez le formulaire
+                            ci-dessous et nous reviendrons vers vous sous 48h.</p>
+                    </div>
+                    <form action="#" method="POST" class="max-w-xl mx-auto">
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="nom" data-lang-key="form_name" class="block mb-1 font-medium">Nom</label>
+                                <input type="text" id="nom" name="nom" required
+                                    class="w-full bg-gray-700 dark:bg-gray-800 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-strawb-red">
+                            </div>
+                            <div>
+                                <label for="email" data-lang-key="form_email"
+                                    class="block mb-1 font-medium">Email</label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full bg-gray-700 dark:bg-gray-800 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-strawb-red">
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <label for="service" data-lang-key="form_service" class="block mb-1 font-medium">Type de
+                                service</label>
+                            <select id="service" name="service"
                                 class="w-full bg-gray-700 dark:bg-gray-800 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-strawb-red">
+                                <option data-lang-key="option_web">Développement Web</option>
+                                <option data-lang-key="option_mobile">Développement Mobile</option>
+                                <option data-lang-key="option_ux">Conception UX/UI</option>
+                                <option data-lang-key="option_other">Autre</option>
+                            </select>
                         </div>
-                        <div>
-                            <label for="email" data-lang-key="form_email" class="block mb-1 font-medium">Email</label>
-                            <input type="email" id="email" name="email" required
-                                class="w-full bg-gray-700 dark:bg-gray-800 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-strawb-red">
+                        <div class="mt-6">
+                            <label for="message" data-lang-key="form_message" class="block mb-1 font-medium">Votre
+                                message</label>
+                            <textarea id="message" name="message" rows="5" required
+                                class="w-full bg-gray-700 dark:bg-gray-800 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-strawb-red"></textarea>
                         </div>
-                    </div>
-                    <div class="mt-6">
-                        <label for="service" data-lang-key="form_service" class="block mb-1 font-medium">Type de
-                            service</label>
-                        <select id="service" name="service"
-                            class="w-full bg-gray-700 dark:bg-gray-800 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-strawb-red">
-                            <option data-lang-key="option_web">Développement Web</option>
-                            <option data-lang-key="option_mobile">Développement Mobile</option>
-                            <option data-lang-key="option_ux">Conception UX/UI</option>
-                            <option data-lang-key="option_other">Autre</option>
-                        </select>
-                    </div>
-                    <div class="mt-6">
-                        <label for="message" data-lang-key="form_message" class="block mb-1 font-medium">Votre
-                            message</label>
-                        <textarea id="message" name="message" rows="5" required
-                            class="w-full bg-gray-700 dark:bg-gray-800 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-strawb-red"></textarea>
-                    </div>
-                    <div class="mt-8 text-center">
-                        <button type="submit" data-lang-key="form_submit"
-                            class="bg-strawb-red text-white font-bold py-3 px-12 rounded-full hover:bg-red-700 transition">Envoyer
-                            la demande</button>
-                    </div>
-                </form>
+                        <div class="mt-8 text-center">
+                            <button type="submit" data-lang-key="form_submit"
+                                class="bg-strawb-red text-white font-bold py-3 px-12 rounded-full hover:bg-red-700 transition">Envoyer
+                                la demande</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="bg-gray-50 dark:bg-gray-800">
+            <div class="container mx-auto px-6 py-6 text-center text-gray-600 dark:text-gray-400">
+                <p data-lang-key="footer_text">&copy; 2025 Strawb. Tous droits réservés.</p>
             </div>
-        </section>
-
-    </main>
-
-    <footer class="bg-gray-50 dark:bg-gray-800">
-        <div class="container mx-auto px-6 py-6 text-center text-gray-600 dark:text-gray-400">
-            <p data-lang-key="footer_text">&copy; 2025 Strawb. Tous droits réservés.</p>
-        </div>
-    </footer>
-
+        </footer>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- GESTION DU MODE NUIT ---
-            const themeToggle = document.getElementById('theme-toggle');
-            const sunIcon = document.getElementById('theme-icon-sun');
-            const moonIcon = document.getElementById('theme-icon-moon');
+            // --- ÉLÉMENTS DU DOM ---
+            const siteWrapper = document.getElementById('site-wrapper');
+            const themeToggle = document.getElementById('theme-toggle-checkbox');
+            const monochromeToggle = document.getElementById('monochrome-toggle');
+            const langMenuButton = document.getElementById('lang-menu-button');
+            const langDropdown = document.getElementById('lang-dropdown');
+            const currentLangFlag = document.getElementById('current-lang-flag');
+            const currentLangText = document.getElementById('current-lang-text');
 
-            // Appliquer le thème sauvegardé au chargement
-            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-            }
-
-            themeToggle.addEventListener('click', () => {
-                document.documentElement.classList.toggle('dark');
-                sunIcon.classList.toggle('hidden');
-                moonIcon.classList.toggle('hidden');
-
-                // Sauvegarder le choix de l'utilisateur
-                if (document.documentElement.classList.contains('dark')) {
-                    localStorage.setItem('theme', 'dark');
+            // --- GESTION DU MODE NUIT/JOUR (TOGGLE SWITCH) ---
+            const applyTheme = (isDark) => {
+                if (isDark) {
+                    document.documentElement.classList.add('dark');
+                    themeToggle.checked = true;
                 } else {
-                    localStorage.setItem('theme', 'light');
+                    document.documentElement.classList.remove('dark');
+                    themeToggle.checked = false;
                 }
+            };
+
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            applyTheme(savedTheme === 'dark' || (savedTheme === null && prefersDark));
+
+            themeToggle.addEventListener('change', () => {
+                const isDark = themeToggle.checked;
+                applyTheme(isDark);
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            });
+
+            // --- GESTION DU MODE MONOCHROME ---
+            monochromeToggle.addEventListener('click', () => {
+                siteWrapper.classList.toggle('monochrome');
             });
 
             // --- GESTION DE LA TRADUCTION ---
-            const langToggle = document.getElementById('lang-toggle');
-            const langText = document.getElementById('lang-text');
             let currentLang = 'fr';
-
+            const flags = { fr: '🇫🇷', en: '🇬🇧', es: '🇪🇸', ja: '🇯🇵' };
             const translations = {
                 fr: {
-                    // Nav
-                    nav_services: 'Prestations',
-                    nav_projects: 'Réalisations',
-                    nav_about: 'À Propos',
-                    nav_contact_btn: 'Contact',
-                    // Héros
-                    hero_title: 'Nous cultivons vos idées en solutions numériques.',
-                    hero_subtitle: "Développement d'applications web, logiciels et mobiles sur-mesure, de la conception à la mise en ligne.",
-                    hero_cta1: 'Nos réalisations',
-                    hero_cta2: 'Nous contacter',
-                    // Prestations
-                    services_title: 'Nos Prestations',
-                    services_subtitle: 'Un accompagnement complet pour donner vie à votre projet.',
-                    service1_title: 'Développement Web',
-                    service1_desc: 'Sites vitrines, applications web complexes (SaaS) et plateformes e-commerce performantes.',
-                    service2_title: 'Développement Mobile',
-                    service2_desc: 'Applications natives iOS & Android ou cross-platform pour une expérience utilisateur optimale.',
-                    service3_title: 'Développement Logiciel',
-                    service3_desc: 'Conception de logiciels de bureau sur-mesure, APIs robustes et modernisation de systèmes existants.',
-                    service4_title: 'Conception UX/UI',
-                    service4_desc: "Nous créons des interfaces intuitives et agréables grâce à notre expertise en Interaction Homme-Machine.",
-                    // Réalisations
-                    projects_title: 'Nos Réalisations',
-                    projects_subtitle: 'Quelques exemples de projets que nous avons accompagnés.',
-                    project1_title: 'Application Mobile "ConnectYou"',
-                    project1_desc: 'Une application sociale pour connecter les passionnés de sport. Disponible sur iOS et Android.',
-                    project2_title: 'Plateforme SaaS "DataBoard"',
-                    project2_desc: 'Un tableau de bord analytique complexe pour les entreprises du secteur de la finance.',
-                    project3_title: 'Logiciel "ProManage"',
-                    project3_desc: 'Un outil de gestion de projet sur-mesure pour les agences créatives, développé pour macOS.',
-                    // À propos
-                    about_title: "Plus qu'un prestataire, un véritable partenaire.",
-                    about_desc1: "Chez Strawb, nous croyons qu'un bon produit numérique est un produit utile, utilisable et utilisé. Notre mission est de transformer votre vision en une réalité digitale performante et centrée sur l'humain.",
-                    about_desc2: "Fort d'un Master en Interaction Homme-Machine, je mets un point d'honneur à placer l'utilisateur final au cœur de chaque projet, garantissant ainsi des solutions non seulement fonctionnelles, mais aussi intuitives et agréables à utiliser.",
-                    about_clients_title: 'Ils nous ont fait confiance',
-                    // Contact
-                    contact_title: 'Un projet en tête ? Parlons-en !',
-                    contact_subtitle: 'Remplissez le formulaire ci-dessous et nous reviendrons vers vous sous 48h.',
-                    form_name: 'Nom',
-                    form_email: 'Email',
-                    form_service: 'Type de service',
-                    option_web: 'Développement Web',
-                    option_mobile: 'Développement Mobile',
-                    option_ux: 'Conception UX/UI',
-                    option_other: 'Autre',
-                    form_message: 'Votre message',
-                    form_submit: 'Envoyer la demande',
-                    // Footer
+                    nav_services: 'Prestations', nav_projects: 'Réalisations', nav_about: 'À Propos', nav_contact_btn: 'Contact', lang_fr: 'Français', lang_en: 'Anglais', lang_es: 'Espagnol', lang_ja: 'Japonais',
+                    hero_title: 'Nous cultivons vos idées en solutions numériques.', hero_subtitle: "Développement d'applications web, logiciels et mobiles sur-mesure, de la conception à la mise en ligne.", hero_cta1: 'Nos réalisations', hero_cta2: 'Nous contacter',
+                    services_title: 'Nos Prestations', services_subtitle: 'Un accompagnement complet pour donner vie à votre projet.', service1_title: 'Développement Web', service1_desc: 'Sites vitrines, applications web complexes (SaaS) et plateformes e-commerce performantes.', service2_title: 'Développement Mobile', service2_desc: 'Applications natives iOS & Android ou cross-platform pour une expérience utilisateur optimale.', service3_title: 'Développement Logiciel', service3_desc: 'Conception de logiciels de bureau sur-mesure, APIs robustes et modernisation de systèmes existants.', service4_title: 'Conception UX/UI', service4_desc: "Nous créons des interfaces intuitives et agréables grâce à notre expertise en Interaction Homme-Machine.",
+                    projects_title: 'Nos Réalisations', projects_subtitle: 'Quelques exemples de projets que nous avons accompagnés.', project1_title: 'Application Mobile "ConnectYou"', project1_desc: 'Une application sociale pour connecter les passionnés de sport. Disponible sur iOS et Android.', project2_title: 'Plateforme SaaS "DataBoard"', project2_desc: 'Un tableau de bord analytique complexe pour les entreprises du secteur de la finance.', project3_title: 'Logiciel "ProManage"', project3_desc: 'Un outil de gestion de projet sur-mesure pour les agences créatives, développé pour macOS.',
+                    about_title: "Plus qu'un prestataire, un véritable partenaire.", about_desc1: "Chez Strawb, nous croyons qu'un bon produit numérique est un produit utile, utilisable et utilisé. Notre mission est de transformer votre vision en une réalité digitale performante et centrée sur l'humain.", about_desc2: "Fort d'un Master en Interaction Homme-Machine, je mets un point d'honneur à placer l'utilisateur final au cœur de chaque projet, garantissant ainsi des solutions non seulement fonctionnelles, mais aussi intuitives et agréables à utiliser.", about_clients_title: 'Ils nous ont fait confiance',
+                    contact_title: 'Un projet en tête ? Parlons-en !', contact_subtitle: 'Remplissez le formulaire ci-dessous et nous reviendrons vers vous sous 48h.', form_name: 'Nom', form_email: 'Email', form_service: 'Type de service', option_web: 'Développement Web', option_mobile: 'Développement Mobile', option_ux: 'Conception UX/UI', option_other: 'Autre', form_message: 'Votre message', form_submit: 'Envoyer la demande',
                     footer_text: '© 2025 Strawb. Tous droits réservés.'
                 },
                 en: {
-                    // Nav
-                    nav_services: 'Services',
-                    nav_projects: 'Projects',
-                    nav_about: 'About',
-                    nav_contact_btn: 'Contact',
-                    // Hero
-                    hero_title: 'We grow your ideas into digital solutions.',
-                    hero_subtitle: 'Custom development of web, software, and mobile applications, from design to launch.',
-                    hero_cta1: 'Our projects',
-                    hero_cta2: 'Contact us',
-                    // Services
-                    services_title: 'Our Services',
-                    services_subtitle: 'Comprehensive support to bring your project to life.',
-                    service1_title: 'Web Development',
-                    service1_desc: 'Showcase sites, complex web applications (SaaS), and high-performance e-commerce platforms.',
-                    service2_title: 'Mobile Development',
-                    service2_desc: 'Native iOS & Android or cross-platform applications for an optimal user experience.',
-                    service3_title: 'Software Development',
-                    service3_desc: 'Design of custom desktop software, robust APIs, and modernization of existing systems.',
-                    service4_title: 'UX/UI Design',
-                    service4_desc: 'We create intuitive and enjoyable interfaces thanks to our expertise in Human-Computer Interaction.',
-                    // Projects
-                    projects_title: 'Our Projects',
-                    projects_subtitle: 'A few examples of projects we have supported.',
-                    project1_title: 'Mobile App "ConnectYou"',
-                    project1_desc: 'A social application to connect sports enthusiasts. Available on iOS and Android.',
-                    project2_title: '"DataBoard" SaaS Platform',
-                    project2_desc: 'A complex analytical dashboard for companies in the financial sector.',
-                    project3_title: '"ProManage" Software',
-                    project3_desc: 'A custom project management tool for creative agencies, developed for macOS.',
-                    // About
-                    about_title: 'More than a provider, a true partner.',
-                    about_desc1: 'At Strawb, we believe that a good digital product is useful, usable, and used. Our mission is to transform your vision into a high-performing, human-centered digital reality.',
-                    about_desc2: "With a Master's degree in Human-Computer Interaction, I make it a point of honor to place the end-user at the heart of every project, thus ensuring solutions that are not only functional but also intuitive and enjoyable to use.",
-                    about_clients_title: 'They trusted us',
-                    // Contact
-                    contact_title: 'Have a project in mind? Let\'s talk!',
-                    contact_subtitle: 'Fill out the form below, and we will get back to you within 48 hours.',
-                    form_name: 'Name',
-                    form_email: 'Email',
-                    form_service: 'Type of service',
-                    option_web: 'Web Development',
-                    option_mobile: 'Mobile Development',
-                    option_ux: 'UX/UI Design',
-                    option_other: 'Other',
-                    form_message: 'Your message',
-                    form_submit: 'Send request',
-                    // Footer
+                    nav_services: 'Services', nav_projects: 'Projects', nav_about: 'About', nav_contact_btn: 'Contact', lang_fr: 'French', lang_en: 'English', lang_es: 'Spanish', lang_ja: 'Japanese',
+                    hero_title: 'We grow your ideas into digital solutions.', hero_subtitle: 'Custom development of web, software, and mobile applications, from design to launch.', hero_cta1: 'Our projects', hero_cta2: 'Contact us',
+                    services_title: 'Our Services', services_subtitle: 'Comprehensive support to bring your project to life.', service1_title: 'Web Development', service1_desc: 'Showcase sites, complex web applications (SaaS), and high-performance e-commerce platforms.', service2_title: 'Mobile Development', service2_desc: 'Native iOS & Android or cross-platform applications for an optimal user experience.', service3_title: 'Software Development', service3_desc: 'Design of custom desktop software, robust APIs, and modernization of existing systems.', service4_title: 'UX/UI Design', service4_desc: 'We create intuitive and enjoyable interfaces thanks to our expertise in Human-Computer Interaction.',
+                    projects_title: 'Our Projects', projects_subtitle: 'A few examples of projects we have supported.', project1_title: 'Mobile App "ConnectYou"', project1_desc: 'A social application to connect sports enthusiasts. Available on iOS and Android.', project2_title: '"DataBoard" SaaS Platform', project2_desc: 'A complex analytical dashboard for companies in the financial sector.', project3_title: '"ProManage" Software', project3_desc: 'A custom project management tool for creative agencies, developed for macOS.',
+                    about_title: 'More than a provider, a true partner.', about_desc1: 'At Strawb, we believe that a good digital product is useful, usable, and used. Our mission is to transform your vision into a high-performing, human-centered digital reality.', about_desc2: "With a Master's degree in Human-Computer Interaction, I make it a point of honor to place the end-user at the heart of every project, thus ensuring solutions that are not only functional but also intuitive and enjoyable to use.", about_clients_title: 'They trusted us',
+                    contact_title: 'Have a project in mind? Let\'s talk!', contact_subtitle: 'Fill out the form below, and we will get back to you within 48 hours.', form_name: 'Name', form_email: 'Email', form_service: 'Type of service', option_web: 'Web Development', option_mobile: 'Mobile Development', option_ux: 'UX/UI Design', option_other: 'Other', form_message: 'Your message', form_submit: 'Send request',
                     footer_text: '© 2025 Strawb. All rights reserved.'
+                },
+                es: {
+                    nav_services: 'Servicios', nav_projects: 'Proyectos', nav_about: 'Sobre mí', nav_contact_btn: 'Contacto', lang_fr: 'Francés', lang_en: 'Inglés', lang_es: 'Español', lang_ja: 'Japonés',
+                    hero_title: 'Cultivamos tus ideas en soluciones digitales.', hero_subtitle: 'Desarrollo a medida de aplicaciones web, software y móviles, desde el diseño hasta el lanzamiento.', hero_cta1: 'Nuestros proyectos', hero_cta2: 'Contactar',
+                    services_title: 'Nuestros Servicios', services_subtitle: 'Soporte completo para dar vida a tu proyecto.', service1_title: 'Desarrollo Web', service1_desc: 'Sitios web, aplicaciones web complejas (SaaS) y plataformas de e-commerce de alto rendimiento.', service2_title: 'Desarrollo Móvil', service2_desc: 'Aplicaciones nativas para iOS y Android o multiplataforma para una experiencia de usuario óptima.', service3_title: 'Desarrollo de Software', service3_desc: 'Diseño de software de escritorio a medida, APIs robustas y modernización de sistemas existentes.', service4_title: 'Diseño UX/UI', service4_desc: 'Creamos interfaces intuitivas y agradables gracias a nuestra experiencia en Interacción Humano-Computadora.',
+                    projects_title: 'Nuestros Proyectos', projects_subtitle: 'Algunos ejemplos de proyectos que hemos apoyado.', project1_title: 'App Móvil "ConnectYou"', project1_desc: 'Una aplicación social para conectar a los entusiastas del deporte. Disponible en iOS y Android.', project2_title: 'Plataforma SaaS "DataBoard"', project2_desc: 'Un complejo panel de análisis para empresas del sector financiero.', project3_title: 'Software "ProManage"', project3_desc: 'Una herramienta de gestión de proyectos a medida para agencias creativas, desarrollada para macOS.',
+                    about_title: 'Más que un proveedor, un verdadero socio.', about_desc1: 'En Strawb, creemos que un buen producto digital es útil, usable y usado. Nuestra misión es transformar tu visión en una realidad digital de alto rendimiento y centrada en el ser humano.', about_desc2: 'Con un Máster en Interacción Humano-Computadora, me enorgullece poner al usuario final en el centro de cada proyecto, garantizando soluciones que no solo son funcionales, sino también intuitivas y agradables de usar.', about_clients_title: 'Confiaron en nosotros',
+                    contact_title: '¿Tienes un proyecto en mente? ¡Hablemos!', contact_subtitle: 'Rellena el siguiente formulario y te responderemos en 48 horas.', form_name: 'Nombre', form_email: 'Correo electrónico', form_service: 'Tipo de servicio', option_web: 'Desarrollo Web', option_mobile: 'Desarrollo Móvil', option_ux: 'Diseño UX/UI', option_other: 'Otro', form_message: 'Tu mensaje', form_submit: 'Enviar solicitud',
+                    footer_text: '© 2025 Strawb. Todos los derechos reservados.'
+                },
+                ja: {
+                    nav_services: 'サービス', nav_projects: '実績', nav_about: '概要', nav_contact_btn: '連絡先', lang_fr: 'フランス語', lang_en: '英語', lang_es: 'スペイン語', lang_ja: '日本語',
+                    hero_title: 'アイデアをデジタルソリューションに育てます。', hero_subtitle: '設計から公開まで、ウェブ、ソフトウェア、モバイルアプリのカスタム開発。', hero_cta1: '私たちの実績', hero_cta2: 'お問い合わせ',
+                    services_title: '私たちのサービス', services_subtitle: 'プロジェクトを実現するための包括的なサポート。', service1_title: 'ウェブ開発', service1_desc: '紹介サイト、複雑なウェブアプリケーション（SaaS）、高性能なEコマースプラットフォーム。', service2_title: 'モバイル開発', service2_desc: '最適なユーザーエクスペリエンスのためのネイティブiOS＆Androidまたはクロスプラットフォームアプリ。', service3_title: 'ソフトウェア開発', service3_desc: 'カスタムデスクトップソフトウェア、堅牢なAPIの設計、既存システムの近代化。', service4_title: 'UX/UIデザイン', service4_desc: 'ヒューマンコンピュータインタラクションの専門知識を活かし、直感的で快適なインターフェースを作成します。',
+                    projects_title: '私たちの実績', projects_subtitle: '私たちがサポートしたプロジェクトの例です。', project1_title: 'モバイルアプリ「ConnectYou」', project1_desc: 'スポーツ愛好家をつなぐソーシャルアプリ。iOSとAndroidで利用可能。', project2_title: 'SaaSプラットフォーム「DataBoard」', project2_desc: '金融セクターの企業向けの複雑な分析ダッシュボード。', project3_title: 'ソフトウェア「ProManage」', project3_desc: 'クリエイティブエージェンシー向けのカスタムプロジェクト管理ツール。macOS用に開発。',
+                    about_title: '単なるプロバイダーではなく、真のパートナー。', about_desc1: 'Strawbでは、優れたデジタル製品とは、便利で、使いやすく、実際に使われるものだと考えています。私たちの使命は、お客様のビジョンを高性能で人間中心のデジタルリアリティに変えることです。', about_desc2: 'ヒューマンコンピュータインタラクションの修士号を持つ私は、すべてのプロジェクトの中心にエンドユーザーを据えることを誇りに思っており、機能的であるだけでなく、直感的で使いやすいソリューションを保証します。', about_clients_title: 'お客様からの信頼',
+                    contact_title: 'プロジェクトをお考えですか？お話ししましょう！', contact_subtitle: '以下のフォームにご記入ください。48時間以内にご返信いたします。', form_name: '名前', form_email: 'メールアドレス', form_service: 'サービスの種類', option_web: 'ウェブ開発', option_mobile: 'モバイル開発', option_ux: 'UX/UIデザイン', option_other: 'その他', form_message: 'メッセージ', form_submit: '送信',
+                    footer_text: '© 2025 Strawb. 全著作権所有。'
                 }
             };
 
             function translatePage(lang) {
                 document.querySelectorAll('[data-lang-key]').forEach(element => {
                     const key = element.getAttribute('data-lang-key');
-                    if (translations[lang][key]) {
+                    if (translations[lang] && translations[lang][key]) {
                         element.textContent = translations[lang][key];
                     }
                 });
                 document.documentElement.lang = lang;
             }
 
-            langToggle.addEventListener('click', () => {
-                if (currentLang === 'fr') {
-                    currentLang = 'en';
-                    langText.textContent = 'FR';
-                } else {
-                    currentLang = 'fr';
-                    langText.textContent = 'EN';
+            function updateLangButton(lang) {
+                currentLangFlag.textContent = flags[lang];
+                currentLangText.textContent = lang.toUpperCase();
+                currentLang = lang;
+                langDropdown.classList.add('hidden');
+            }
+
+            langMenuButton.addEventListener('click', () => {
+                langDropdown.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('.lang-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const lang = e.currentTarget.dataset.lang;
+                    updateLangButton(lang);
+                    translatePage(lang);
+                });
+            });
+
+            // Fermer le menu si on clique en dehors
+            document.addEventListener('click', (e) => {
+                if (!document.getElementById('lang-menu').contains(e.target)) {
+                    langDropdown.classList.add('hidden');
                 }
-                translatePage(currentLang);
             });
         });
     </script>
-
 </body>
 
 </html>
