@@ -15,6 +15,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
         rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon.png">
 
     <script>
         tailwind.config = {
@@ -24,6 +25,8 @@
                     colors: {
                         'strawb-red': '#d92645',
                         'strawb-green': '#2a9d8f',
+                        'manta-dark': '#192E36',
+                        'manta-light': '#4B7C8C'
                     },
                     fontFamily: {
                         'sans': ['Roboto', 'sans-serif'],
@@ -35,7 +38,7 @@
     </script>
     <style>
         .monochrome {
-            filter: grayscale(100%);
+            filter: grayscale(100%) !important;
             transition: filter 0.3s ease-in-out;
         }
 
@@ -59,7 +62,8 @@
                     <a href="#realisations" data-lang-key="nav_projects"
                         class="text-gray-600 dark:text-gray-300 hover:text-strawb-red dark:hover:text-strawb-red transition">Réalisations</a>
                     <a href="#a-propos" data-lang-key="nav_about"
-                        class="text-gray-600 dark:text-gray-300 hover:text-strawb-red dark:hover:text-strawb-red transition">À Propos</a>
+                        class="text-gray-600 dark:text-gray-300 hover:text-strawb-red dark:hover:text-strawb-red transition">À
+                        Propos</a>
                     <a href="#contact" data-lang-key="nav_contact_btn"
                         class="bg-strawb-red text-white font-bold py-2 px-4 rounded-full hover:bg-red-700 transition">Contact</a>
                 </div>
@@ -224,41 +228,31 @@
                         <p data-lang-key="projects_subtitle" class="text-gray-600 dark:text-gray-400 mt-2">Quelques
                             exemples de projets que nous avons accompagnés.</p>
                     </div>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden group">
-                            <img src="https://placehold.co/600x400/d92645/FFFFFF?text=Projet+Mobile"
+                    <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                        <div
+                            class="bg-white max-w-lg justify-self-center dark:bg-gray-700 rounded-lg shadow-md overflow-hidden group">
+                            <img src="https://placehold.co/600x400/4B7C8C/FFFFFF?text=Manta+Voyager"
                                 alt="Visuel du projet 1"
                                 class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
                             <div class="p-6">
                                 <h3 data-lang-key="project1_title" class="font-display text-xl font-bold mb-2">
-                                    Application Mobile "ConnectYou"</h3>
-                                <p data-lang-key="project1_desc" class="text-gray-600 dark:text-gray-300 mb-4">Une
-                                    application sociale pour connecter les passionnés de sport. Disponible sur iOS et
-                                    Android.</p>
+                                    Projet "Manta Voyager"</h3>
+                                <p data-lang-key="project1_desc" class="text-gray-600 dark:text-gray-300 mb-4">Un
+                                    appareil portable qui analyse, diagnostique et guide les soins, sans connexion, sans
+                                    médecin, dans les conditions les plus hostiles.</p>
                             </div>
                         </div>
-                        <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden group">
-                            <img src="https://placehold.co/600x400/2a9d8f/FFFFFF?text=Projet+Web"
+                        <div
+                            class="bg-white max-w-lg justify-self-center dark:bg-gray-700 rounded-lg shadow-md overflow-hidden group">
+                            <img src="https://placehold.co/600x400/d92645/FFFFFF?text=TTS+Audio+Sender"
                                 alt="Visuel du projet 2"
                                 class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
                             <div class="p-6">
                                 <h3 data-lang-key="project2_title" class="font-display text-xl font-bold mb-2">
-                                    Plateforme SaaS "DataBoard"</h3>
-                                <p data-lang-key="project2_desc" class="text-gray-600 dark:text-gray-300 mb-4">Un
-                                    tableau de bord analytique complexe pour les entreprises du secteur de la finance.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden group">
-                            <img src="https://placehold.co/600x400/333333/FFFFFF?text=Projet+Logiciel"
-                                alt="Visuel du projet 3"
-                                class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
-                            <div class="p-6">
-                                <h3 data-lang-key="project3_title" class="font-display text-xl font-bold mb-2">Logiciel
-                                    "ProManage"</h3>
-                                <p data-lang-key="project3_desc" class="text-gray-600 dark:text-gray-300 mb-4">Un outil
-                                    de gestion de projet sur-mesure pour les agences créatives, développé pour macOS.
-                                </p>
+                                    Application "TTS Audio Sender"</h3>
+                                <p data-lang-key="project2_desc" class="text-gray-600 dark:text-gray-300 mb-4">
+                                    Application mobile multiplateforme (Android & iOS) qui convertit du texte en audio
+                                    et permet de le partager facilement.</p>
                             </div>
                         </div>
                     </div>
@@ -274,23 +268,26 @@
                             Strawb, nous croyons qu'un bon produit numérique est un produit utile, utilisable et
                             utilisé. Notre mission est de transformer votre vision en une réalité digitale performante
                             et centrée sur l'humain.</p>
-                        <p data-lang-key="about_desc2" class="text-gray-600 dark:text-gray-400 mt-4">Fort d'un Master en
-                            Interaction Homme-Machine, je mets un point d'honneur à placer l'utilisateur final au cœur
+                        <p data-lang-key="about_desc2" class="text-gray-600 dark:text-gray-400 mt-4">Fort d'un Master
+                            Informatique en
+                            Interaction Humain-Machine, je mets un point d'honneur à placer l'utilisateur final au cœur
                             de chaque projet, garantissant ainsi des solutions non seulement fonctionnelles, mais aussi
                             intuitives et agréables à utiliser.</p>
                     </div>
                     <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg">
                         <h3 data-lang-key="about_clients_title"
                             class="font-display text-2xl font-bold text-center mb-6">Ils nous ont fait confiance</h3>
-                        <div class="grid grid-cols-2 gap-8 items-center"><img
-                                src="https://placehold.co/200x100/CCCCCC/FFFFFF?text=Client+A" alt="Logo Client A"
-                                class="mx-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"><img
-                                src="https://placehold.co/200x100/CCCCCC/FFFFFF?text=Client+B" alt="Logo Client B"
-                                class="mx-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"><img
-                                src="https://placehold.co/200x100/CCCCCC/FFFFFF?text=Client+C" alt="Logo Client C"
-                                class="mx-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"><img
-                                src="https://placehold.co/200x100/CCCCCC/FFFFFF?text=Client+D" alt="Logo Client D"
+                        <div class="grid grid-cols-1 gap-8 items-center">
+                            <a href="https://onetreck.com/" target="_blank" class="max-w-xs justify-self-center">
+                                <img src="./assets/OneTreck_Blanc.png" alt="Logo OneTreck"
+                                    class="mx-auto p-4 rounded-lg bg-manta-dark opacity-100 hover:bg-manta-light hover:opacity-100 transition">
+                            </a>
+                            <!-- <img src="https://placehold.co/200x100/CCCCCC/FFFFFF?text=Client+B" alt="Logo Client B"
                                 class="mx-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition">
+                            <img src="https://placehold.co/200x100/CCCCCC/FFFFFF?text=Client+C" alt="Logo Client C"
+                                class="mx-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition">
+                            <img src="https://placehold.co/200x100/CCCCCC/FFFFFF?text=Client+D" alt="Logo Client D"
+                                class="mx-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"> -->
                         </div>
                     </div>
                 </div>
@@ -399,7 +396,7 @@
                     nav_services: 'Prestations', nav_projects: 'Réalisations', nav_about: 'À Propos', nav_contact_btn: 'Contact', lang_fr: 'Français', lang_en: 'Anglais', lang_es: 'Espagnol', lang_ja: 'Japonais',
                     hero_title: 'Nous cultivons vos idées en solutions numériques.', hero_subtitle: "Développement d'applications web, logiciels et mobiles sur-mesure, de la conception à la mise en ligne.", hero_cta1: 'Nos réalisations', hero_cta2: 'Nous contacter',
                     services_title: 'Nos Prestations', services_subtitle: 'Un accompagnement complet pour donner vie à votre projet.', service1_title: 'Développement Web', service1_desc: 'Sites vitrines, applications web complexes (SaaS) et plateformes e-commerce performantes.', service2_title: 'Développement Mobile', service2_desc: 'Applications natives iOS & Android ou cross-platform pour une expérience utilisateur optimale.', service3_title: 'Développement Logiciel', service3_desc: 'Conception de logiciels de bureau sur-mesure, APIs robustes et modernisation de systèmes existants.', service4_title: 'Conception UX/UI', service4_desc: "Nous créons des interfaces intuitives et agréables grâce à notre expertise en Interaction Homme-Machine.",
-                    projects_title: 'Nos Réalisations', projects_subtitle: 'Quelques exemples de projets que nous avons accompagnés.', project1_title: 'Application Mobile "ConnectYou"', project1_desc: 'Une application sociale pour connecter les passionnés de sport. Disponible sur iOS et Android.', project2_title: 'Plateforme SaaS "DataBoard"', project2_desc: 'Un tableau de bord analytique complexe pour les entreprises du secteur de la finance.', project3_title: 'Logiciel "ProManage"', project3_desc: 'Un outil de gestion de projet sur-mesure pour les agences créatives, développé pour macOS.',
+                    projects_title: 'Nos Réalisations', projects_subtitle: 'Quelques exemples de projets que nous avons accompagnés.', project1_title: 'Application Mobile "ConnectYou"', project1_desc: 'Un appareil portable qui analyse, diagnostique et guide les soins, sans connexion, sans médecin, dans les conditions les plus hostiles.', project2_title: 'Application mobile "TTS Audio Sender"', project2_desc: 'Application mobile multiplateforme (Android & iOS) qui convertit du texte en audio et permet de le partager facilement.', project3_title: 'Logiciel "ProManage"', project3_desc: 'Un outil de gestion de projet sur-mesure pour les agences créatives, développé pour macOS.',
                     about_title: "Plus qu'un prestataire, un véritable partenaire.", about_desc1: "Chez Strawb, nous croyons qu'un bon produit numérique est un produit utile, utilisable et utilisé. Notre mission est de transformer votre vision en une réalité digitale performante et centrée sur l'humain.", about_desc2: "Fort d'un Master en Interaction Homme-Machine, je mets un point d'honneur à placer l'utilisateur final au cœur de chaque projet, garantissant ainsi des solutions non seulement fonctionnelles, mais aussi intuitives et agréables à utiliser.", about_clients_title: 'Ils nous ont fait confiance',
                     contact_title: 'Un projet en tête ? Parlons-en !', contact_subtitle: 'Remplissez le formulaire ci-dessous et nous reviendrons vers vous sous 48h.', form_name: 'Nom', form_email: 'Email', form_service: 'Type de service', option_web: 'Développement Web', option_software: 'Développement Logiciel', option_mobile: 'Développement Mobile', option_ux: 'Conception UX/UI', option_other: 'Autre', form_message: 'Votre message', form_submit: 'Envoyer la demande',
                     footer_text: '© 2025 Strawb. Tous droits réservés.'
@@ -408,7 +405,7 @@
                     nav_services: 'Services', nav_projects: 'Projects', nav_about: 'About', nav_contact_btn: 'Contact', lang_fr: 'French', lang_en: 'English', lang_es: 'Spanish', lang_ja: 'Japanese',
                     hero_title: 'We grow your ideas into digital solutions.', hero_subtitle: 'Custom development of web, software, and mobile applications, from design to launch.', hero_cta1: 'Our projects', hero_cta2: 'Contact us',
                     services_title: 'Our Services', services_subtitle: 'Comprehensive support to bring your project to life.', service1_title: 'Web Development', service1_desc: 'Showcase sites, complex web applications (SaaS), and high-performance e-commerce platforms.', service2_title: 'Mobile Development', service2_desc: 'Native iOS & Android or cross-platform applications for an optimal user experience.', service3_title: 'Software Development', service3_desc: 'Design of custom desktop software, robust APIs, and modernization of existing systems.', service4_title: 'UX/UI Design', service4_desc: 'We create intuitive and enjoyable interfaces thanks to our expertise in Human-Computer Interaction.',
-                    projects_title: 'Our Projects', projects_subtitle: 'A few examples of projects we have supported.', project1_title: 'Mobile App "ConnectYou"', project1_desc: 'A social application to connect sports enthusiasts. Available on iOS and Android.', project2_title: '"DataBoard" SaaS Platform', project2_desc: 'A complex analytical dashboard for companies in the financial sector.', project3_title: '"ProManage" Software', project3_desc: 'A custom project management tool for creative agencies, developed for macOS.',
+                    projects_title: 'Our Projects', projects_subtitle: 'A few examples of projects we have supported.', project1_title: '"Manta Voyager" Project"', project1_desc: 'A portable device that analyzes, diagnoses and guides care, without a connection, without a doctor, in the most hostile conditions.', project2_title: '“TTS Audio Sender” mobile app', project2_desc: 'Cross-platform mobile app (Android & iOS) that converts text into audio and makes it easy to share.', project3_title: '"ProManage" Software', project3_desc: 'A custom project management tool for creative agencies, developed for macOS.',
                     about_title: 'More than a provider, a true partner.', about_desc1: 'At Strawb, we believe that a good digital product is useful, usable, and used. Our mission is to transform your vision into a high-performing, human-centered digital reality.', about_desc2: "With a Master's degree in Human-Computer Interaction, I make it a point of honor to place the end-user at the heart of every project, thus ensuring solutions that are not only functional but also intuitive and enjoyable to use.", about_clients_title: 'They trusted us',
                     contact_title: 'Have a project in mind? Let\'s talk!', contact_subtitle: 'Fill out the form below, and we will get back to you within 48 hours.', form_name: 'Name', form_email: 'Email', form_service: 'Type of service', option_web: 'Web Development', option_software: 'Software Development', option_mobile: 'Mobile Development', option_ux: 'UX/UI Design', option_other: 'Other', form_message: 'Your message', form_submit: 'Send request',
                     footer_text: '© 2025 Strawb. All rights reserved.'
@@ -417,7 +414,7 @@
                     nav_services: 'Servicios', nav_projects: 'Proyectos', nav_about: 'Sobre mí', nav_contact_btn: 'Contacto', lang_fr: 'Francés', lang_en: 'Inglés', lang_es: 'Español', lang_ja: 'Japonés',
                     hero_title: 'Cultivamos tus ideas en soluciones digitales.', hero_subtitle: 'Desarrollo a medida de aplicaciones web, software y móviles, desde el diseño hasta el lanzamiento.', hero_cta1: 'Nuestros proyectos', hero_cta2: 'Contactar',
                     services_title: 'Nuestros Servicios', services_subtitle: 'Soporte completo para dar vida a tu proyecto.', service1_title: 'Desarrollo Web', service1_desc: 'Sitios web, aplicaciones web complejas (SaaS) y plataformas de e-commerce de alto rendimiento.', service2_title: 'Desarrollo Móvil', service2_desc: 'Aplicaciones nativas para iOS y Android o multiplataforma para una experiencia de usuario óptima.', service3_title: 'Desarrollo de Software', service3_desc: 'Diseño de software de escritorio a medida, APIs robustas y modernización de sistemas existentes.', service4_title: 'Diseño UX/UI', service4_desc: 'Creamos interfaces intuitivas y agradables gracias a nuestra experiencia en Interacción Humano-Computadora.',
-                    projects_title: 'Nuestros Proyectos', projects_subtitle: 'Algunos ejemplos de proyectos que hemos apoyado.', project1_title: 'App Móvil "ConnectYou"', project1_desc: 'Una aplicación social para conectar a los entusiastas del deporte. Disponible en iOS y Android.', project2_title: 'Plataforma SaaS "DataBoard"', project2_desc: 'Un complejo panel de análisis para empresas del sector financiero.', project3_title: 'Software "ProManage"', project3_desc: 'Una herramienta de gestión de proyectos a medida para agencias creativas, desarrollada para macOS.',
+                    projects_title: 'Nuestros Proyectos', projects_subtitle: 'Algunos ejemplos de proyectos que hemos apoyado.', project1_title: 'Proyecto "Manta Voyager"', project1_desc: 'Un dispositivo portátil que analiza, diagnostica y orienta la atención, sin conexión, sin médico, en las condiciones más hostiles.', project2_title: 'Aplicación móvil “TTS Audio Sender”', project2_desc: 'Aplicación móvil multiplataforma (Android e iOS) que convierte texto en audio y permite compartirlo fácilmente.', project3_title: 'Software "ProManage"', project3_desc: 'Una herramienta de gestión de proyectos a medida para agencias creativas, desarrollada para macOS.',
                     about_title: 'Más que un proveedor, un verdadero socio.', about_desc1: 'En Strawb, creemos que un buen producto digital es útil, usable y usado. Nuestra misión es transformar tu visión en una realidad digital de alto rendimiento y centrada en el ser humano.', about_desc2: 'Con un Máster en Interacción Humano-Computadora, me enorgullece poner al usuario final en el centro de cada proyecto, garantizando soluciones que no solo son funcionales, sino también intuitivas y agradables de usar.', about_clients_title: 'Confiaron en nosotros',
                     contact_title: '¿Tienes un proyecto en mente? ¡Hablemos!', contact_subtitle: 'Rellena el siguiente formulario y te responderemos en 48 horas.', form_name: 'Nombre', form_email: 'Correo electrónico', form_service: 'Tipo de servicio', option_web: 'Desarrollo Web', option_software: 'Desarrollo de Software', option_mobile: 'Desarrollo Móvil', option_ux: 'Diseño UX/UI', option_other: 'Otro', form_message: 'Tu mensaje', form_submit: 'Enviar solicitud',
                     footer_text: '© 2025 Strawb. Todos los derechos reservados.'
@@ -426,7 +423,7 @@
                     nav_services: 'サービス', nav_projects: '実績', nav_about: '概要', nav_contact_btn: '連絡先', lang_fr: 'フランス語', lang_en: '英語', lang_es: 'スペイン語', lang_ja: '日本語',
                     hero_title: 'アイデアをデジタルソリューションに育てます。', hero_subtitle: '設計から公開まで、ウェブ、ソフトウェア、モバイルアプリのカスタム開発。', hero_cta1: '私たちの実績', hero_cta2: 'お問い合わせ',
                     services_title: '私たちのサービス', services_subtitle: 'プロジェクトを実現するための包括的なサポート。', service1_title: 'ウェブ開発', service1_desc: '紹介サイト、複雑なウェブアプリケーション（SaaS）、高性能なEコマースプラットフォーム。', service2_title: 'モバイル開発', service2_desc: '最適なユーザーエクスペリエンスのためのネイティブiOS＆Androidまたはクロスプラットフォームアプリ。', service3_title: 'ソフトウェア開発', service3_desc: 'カスタムデスクトップソフトウェア、堅牢なAPIの設計、既存システムの近代化。', service4_title: 'UX/UIデザイン', service4_desc: 'ヒューマンコンピュータインタラクションの専門知識を活かし、直感的で快適なインターフェースを作成します。',
-                    projects_title: '私たちの実績', projects_subtitle: '私たちがサポートしたプロジェクトの例です。', project1_title: 'モバイルアプリ「ConnectYou」', project1_desc: 'スポーツ愛好家をつなぐソーシャルアプリ。iOSとAndroidで利用可能。', project2_title: 'SaaSプラットフォーム「DataBoard」', project2_desc: '金融セクターの企業向けの複雑な分析ダッシュボード。', project3_title: 'ソフトウェア「ProManage」', project3_desc: 'クリエイティブエージェンシー向けのカスタムプロジェクト管理ツール。macOS用に開発。',
+                    projects_title: '私たちの実績', projects_subtitle: '私たちがサポートしたプロジェクトの例です。', project1_title: '「マンタボイジャー」プロジェクト', project1_desc: '最も過酷な状況下でも、接続や医師の介入なしに分析、診断、ケアのガイドを行うポータブル デバイスです。', project2_title: '「TTSオーディオセンダー」モバイルアプリ', project2_desc: 'テキストを音声に変換し、簡単に共有できるクロスプラットフォーム対応のモバイルアプリ（Android & iOS）。', project3_title: 'ソフトウェア「ProManage」', project3_desc: 'クリエイティブエージェンシー向けのカスタムプロジェクト管理ツール。macOS用に開発。',
                     about_title: '単なるプロバイダーではなく、真のパートナー。', about_desc1: 'Strawbでは、優れたデジタル製品とは、便利で、使いやすく、実際に使われるものだと考えています。私たちの使命は、お客様のビジョンを高性能で人間中心のデジタルリアリティに変えることです。', about_desc2: 'ヒューマンコンピュータインタラクションの修士号を持つ私は、すべてのプロジェクトの中心にエンドユーザーを据えることを誇りに思っており、機能的であるだけでなく、直感的で使いやすいソリューションを保証します。', about_clients_title: 'お客様からの信頼',
                     contact_title: 'プロジェクトをお考えですか？お話ししましょう！', contact_subtitle: '以下のフォームにご記入ください。48時間以内にご返信いたします。', form_name: '名前', form_email: 'メールアドレス', form_service: 'サービスの種類', option_web: 'ウェブ開発', option_software: 'ソフトウェア開発', option_mobile: 'モバイル開発', option_ux: 'UX/UIデザイン', option_other: 'その他', form_message: 'メッセージ', form_submit: '送信',
                     footer_text: '© 2025 Strawb. 全著作権所有。'
